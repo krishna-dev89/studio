@@ -24,7 +24,7 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="relative h-80 lg:h-[400px] w-full group">
+        <div className="relative h-80 lg:h-[400px] w-full group flex justify-center">
             {heroImage && (
               <Image
                 src={heroImage.imageUrl}
