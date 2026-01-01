@@ -28,6 +28,7 @@ export function Footer() {
               <Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
               <Link href="/disclaimer" className="text-sm text-muted-foreground hover:text-primary transition-colors">Disclaimer</Link>
+              <Link href="/download" className="text-sm text-muted-foreground hover:text-primary transition-colors">Download</Link>
             </div>
           </div>
         </div>
