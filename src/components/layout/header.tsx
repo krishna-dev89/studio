@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -25,11 +26,9 @@ export function Header() {
   const pathname = usePathname();
 
   const NavLinks = ({ className }: { className?: string }) => (
-    <nav className={cn("flex items-center gap-4 lg:gap-6", className)}>
+    <nav className={cn("flex items-center gap-6", className)}>
       {navLinks.map((link) => {
-        const isActive = pathname === '/' ? pathname === link.href : pathname.startsWith(link.href) && link.href !== '/';
-        const isHome = link.href === '/';
-        const isCurrentPage = isHome ? pathname === '/' : pathname.startsWith(link.href);
+        const isCurrentPage = (link.href === "/" && pathname === "/") || (link.href !== "/" && pathname.startsWith(link.href));
 
         return (
           <Link
@@ -56,7 +55,7 @@ export function Header() {
             <span className="hidden sm:inline-block text-lg">CybersafeIndia</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-1 items-center justify-end space-x-4">
           <NavLinks className="hidden md:flex" />
           <div className="md:hidden">
             <Sheet>
