@@ -34,6 +34,7 @@ const filePaths = [
   "src/app/actions.ts",
   "src/app/contact/page.tsx",
   "src/app/disclaimer/page.tsx",
+  "src/app/download/page.tsx",
   "src/app/globals.css",
   "src/app/layout.tsx",
   "src/app/learn/page.tsx",
@@ -122,7 +123,7 @@ async function FileDisplay({ filePath }: { filePath: string }) {
     );
 }
 
-export default function DownloadPage() {
+export default async function DownloadPage() {
     return (
         <div className="container py-12 md:py-16">
             <Card className="max-w-4xl mx-auto">
