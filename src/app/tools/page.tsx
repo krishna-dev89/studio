@@ -19,11 +19,11 @@ const tools = [
     status: "active"
   },
   {
-    href: "#",
+    href: "/tools/url-scanner",
     icon: LinkIcon,
     title: "URL Safety Scanner",
     description: "Check a website link for phishing, malware, or other security red flags before you click.",
-    status: "soon"
+    status: "active"
   },
   {
     href: "#",
