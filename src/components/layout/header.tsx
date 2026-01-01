@@ -52,7 +52,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-6 flex items-center">
           <Link href="/" className="flex items-center gap-2 font-bold font-headline">
-            <Shield className="h-7 w-7 text-primary" />
+            <Shield className="h-6 w-6 text-primary" />
             <span className="hidden sm:inline-block text-lg">CybersafeIndia</span>
           </Link>
         </div>
