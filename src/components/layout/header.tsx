@@ -15,6 +15,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/learn", label: "Learn" },
+  { href: "/tools", label: "Security Tools"},
   { href: "/threats", label: "Future Threats" },
   { href: "/quiz", label: "Quiz" },
   { href: "/report", label: "Report Crime" },
@@ -26,7 +27,7 @@ export function Header() {
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center gap-4 lg:gap-6", className)}>
       {navLinks.map((link) => {
-        const isActive = pathname === link.href;
+        const isActive = pathname.startsWith(link.href) && (link.href !== '/' || pathname === '/');
         return (
           <Link
             key={link.href}

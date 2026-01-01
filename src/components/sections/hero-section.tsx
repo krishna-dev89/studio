@@ -17,10 +17,10 @@ export function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" asChild>
-              <Link href="/learn">Start Learning</Link>
+              <Link href="/tools">Use Security Tools</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/quiz">Test Your Knowledge</Link>
+              <Link href="/learn">Learn Cyber Safety</Link>
             </Button>
           </div>
         </div>
