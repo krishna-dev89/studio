@@ -12,11 +12,11 @@ const tools = [
     status: "active"
   },
   {
-    href: "#",
+    href: "/tools/phone-checker",
     icon: Smartphone,
     title: "Phone Number Risk Checker",
     description: "Enter a phone number to see if it has been reported for spam or fraudulent activity.",
-    status: "soon"
+    status: "active"
   },
   {
     href: "#",
