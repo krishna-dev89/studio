@@ -52,10 +52,10 @@ export function Header() {
         <div className="mr-6 flex items-center">
           <Link href="/" className="flex items-center gap-2 font-bold font-headline">
             <Shield className="h-6 w-6 text-primary" />
-            <span className="hidden sm:inline-block text-lg">CybersafeIndia</span>
+            <div className="hidden sm:inline-block text-lg">CybersafeIndia</div>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-6">
           <NavLinks className="hidden md:flex" />
           <div className="md:hidden">
             <Sheet>
