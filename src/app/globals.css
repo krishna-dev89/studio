@@ -75,4 +75,14 @@
   .card:hover {
     @apply shadow-lg -translate-y-1;
   }
+
+  /* Add transitions to all icons */
+  .lucide {
+    @apply transition-transform duration-300;
+  }
+  
+  /* Scale up icons when their parent is hovered */
+  *:hover > .lucide {
+    @apply scale-110;
+  }
 }
