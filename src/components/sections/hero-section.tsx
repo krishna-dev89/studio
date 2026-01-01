@@ -6,7 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export function HeroSection() {
   const heroImage = PlaceHolderImages.find(p => p.id === "hero-image-1");
   return (
-    <section className="container pt-12">
+    <section className="container pt-16 pb-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter">
@@ -24,14 +24,15 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="relative h-80 lg:h-[400px] w-full">
+        <div className="relative h-80 lg:h-[400px] w-full group">
             {heroImage && (
               <Image
                 src={heroImage.imageUrl}
                 alt={heroImage.description}
                 fill
-                className="object-cover rounded-xl shadow-lg"
+                className="object-cover rounded-xl shadow-lg transform transition-all duration-500 group-hover:scale-105"
                 data-ai-hint={heroImage.imageHint}
+                priority
               />
             )}
         </div>

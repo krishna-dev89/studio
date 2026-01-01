@@ -18,15 +18,16 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row gap-8 text-center md:text-left">
             <div className="grid gap-2">
               <h4 className="font-semibold">Quick Links</h4>
-              <Link href="/learn" className="text-sm text-muted-foreground hover:text-primary">Learn</Link>
-              <Link href="/threats" className="text-sm text-muted-foreground hover:text-primary">Future Threats</Link>
-              <Link href="/report" className="text-sm text-muted-foreground hover:text-primary">Report Crime</Link>
+              <Link href="/learn" className="text-sm text-muted-foreground hover:text-primary transition-colors">Learn</Link>
+              <Link href="/tools" className="text-sm text-muted-foreground hover:text-primary transition-colors">Security Tools</Link>
+              <Link href="/threats" className="text-sm text-muted-foreground hover:text-primary transition-colors">Future Threats</Link>
+              <Link href="/report" className="text-sm text-muted-foreground hover:text-primary transition-colors">Report Crime</Link>
             </div>
             <div className="grid gap-2">
               <h4 className="font-semibold">Legal</h4>
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-primary">About Us</Link>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">Contact</Link>
-              <Link href="/disclaimer" className="text-sm text-muted-foreground hover:text-primary">Disclaimer</Link>
+              <Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+              <Link href="/disclaimer" className="text-sm text-muted-foreground hover:text-primary transition-colors">Disclaimer</Link>
             </div>
           </div>
         </div>
@@ -36,10 +37,10 @@ export function Footer() {
             <span className="font-semibold">Disclaimer:</span> This platform is for educational purposes and does not replace law enforcement.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter className="h-5 w-5" /></Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook className="h-5 w-5" /></Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram className="h-5 w-5" /></Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin className="h-5 w-5" /></Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin className="h-5 w-5" /></Link>
           </div>
         </div>
       </div>

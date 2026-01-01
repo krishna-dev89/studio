@@ -27,14 +27,17 @@ export function Header() {
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center gap-4 lg:gap-6", className)}>
       {navLinks.map((link) => {
-        const isActive = pathname.startsWith(link.href) && (link.href !== '/' || pathname === '/');
+        const isActive = pathname === '/' ? pathname === link.href : pathname.startsWith(link.href) && link.href !== '/';
+        const isHome = link.href === '/';
+        const isCurrentPage = isHome ? pathname === '/' : pathname.startsWith(link.href);
+
         return (
           <Link
             key={link.href}
             href={link.href}
             className={cn(
               "text-sm font-medium transition-colors hover:text-primary",
-              isActive ? "text-primary" : "text-muted-foreground"
+              isCurrentPage ? "text-primary font-semibold" : "text-muted-foreground"
             )}
           >
             {link.label}
@@ -46,14 +49,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
+      <div className="container flex h-16 items-center">
+        <div className="mr-6 flex items-center">
           <Link href="/" className="flex items-center gap-2 font-bold font-headline">
-            <Shield className="h-6 w-6 text-primary" />
-            <span className="hidden sm:inline-block">CybersafeIndia</span>
+            <Shield className="h-7 w-7 text-primary" />
+            <span className="hidden sm:inline-block text-lg">CybersafeIndia</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-2">
           <NavLinks className="hidden md:flex" />
           <div className="md:hidden">
             <Sheet>
