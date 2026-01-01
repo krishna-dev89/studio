@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useTransition } from "react";
@@ -80,6 +81,8 @@ export function PhoneCheckerClient() {
     });
   };
 
+  const ResultIcon = result ? resultConfig[result.riskLevel].icon : null;
+
   return (
     <Card className="max-w-3xl mx-auto">
       <CardHeader>
@@ -144,10 +147,10 @@ export function PhoneCheckerClient() {
             </Alert>
         )}
 
-        {result && (
+        {result && ResultIcon && (
           <div className={cn("mt-6 rounded-lg border p-6", resultConfig[result.riskLevel].className)}>
             <div className="flex items-center gap-4">
-              <result.icon className={cn("h-8 w-8", resultConfig[result.riskLevel].iconClassName)} />
+              <ResultIcon className={cn("h-8 w-8", resultConfig[result.riskLevel].iconClassName)} />
               <h3 className="font-headline text-2xl">{resultConfig[result.riskLevel].title}</h3>
             </div>
             <div className="mt-4 space-y-4 leading-relaxed">
