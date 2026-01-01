@@ -26,11 +26,11 @@ const tools = [
     status: "active"
   },
   {
-    href: "#",
+    href: "/tools/ai-content-detector",
     icon: FileImage,
     title: "AI Content Detector",
     description: "Upload an image or video to analyze it for indicators of AI generation or deepfakes.",
-    status: "soon"
+    status: "active"
   },
 ]
 
