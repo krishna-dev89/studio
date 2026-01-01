@@ -1,12 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, MessageSquareScan, Link as LinkIcon, Smartphone, FileImage } from "lucide-react";
+import { ArrowRight, MessageSquareIcon, Link as LinkIcon, Smartphone, FileImage } from "lucide-react";
 
 const tools = [
   {
     href: "/tools/message-scanner",
-    icon: MessageSquareScan,
+    icon: MessageSquareIcon,
     title: "Message Scam Detector",
     description: "Paste a suspicious SMS, email, or chat message to check for signs of a scam.",
     status: "active"
