@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { getScamAnalysis, ScamAnalysisResult } from "@/app/tools/message-scanner/actions";
-import { Loader2, Wand2, Shield, ShieldAlert, ShieldX } from "lucide-react";
+import { Loader2, Wand2, Shield, ShieldAlert, ShieldX, MapPin } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -83,7 +83,7 @@ export function ScamDetectorClient() {
     <Card className="max-w-3xl mx-auto">
       <CardHeader>
         <CardTitle className="font-headline flex items-center gap-2">
-          <Wand2 className="h-6 w-6 text-accent" />
+          <Wand2 className="h-7 w-7 text-accent" />
           AI Message Analyzer
         </CardTitle>
         <CardDescription>
@@ -111,7 +111,7 @@ export function ScamDetectorClient() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
+            <Button type="submit" disabled={isPending} className="w-full sm:w-auto" size="lg">
               {isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -147,12 +147,20 @@ export function ScamDetectorClient() {
         {result && (
           <div className={cn("mt-6 rounded-lg border p-6", resultConfig[result.riskLevel].className)}>
             <div className="flex items-center gap-4">
-              <result.icon className={cn("h-8 w-8", resultConfig[result.riskLevel].iconClassName)} />
+              <resultConfig[result.riskLevel].icon className={cn("h-8 w-8", resultConfig[result.riskLevel].iconClassName)} />
               <h3 className="font-headline text-2xl">{resultConfig[result.riskLevel].title}</h3>
             </div>
-            <div className="mt-4 space-y-3 leading-relaxed">
-              <h4 className="font-semibold">AI Analysis:</h4>
-              <p>{result.explanation}</p>
+            <div className="mt-4 space-y-4 leading-relaxed">
+              <div>
+                <h4 className="font-semibold">AI Analysis:</h4>
+                <p>{result.explanation}</p>
+              </div>
+              {result.location && (
+                <div>
+                  <h4 className="font-semibold flex items-center gap-2 mb-2"><MapPin className="h-5 w-5" /> Inferred Location:</h4>
+                  <p className="text-sm font-medium">{result.location}</p>
+                </div>
+              )}
             </div>
           </div>
         )}

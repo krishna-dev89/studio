@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { getPhoneRisk, PhoneRiskResult } from "@/app/tools/phone-checker/actions";
-import { Loader2, Wand2, Shield, ShieldAlert, ShieldX, ListChecks } from "lucide-react";
+import { Loader2, Wand2, Shield, ShieldAlert, ShieldX, ListChecks, MapPin } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -87,7 +87,7 @@ export function PhoneCheckerClient() {
     <Card className="max-w-3xl mx-auto">
       <CardHeader>
         <CardTitle className="font-headline flex items-center gap-2">
-          <Wand2 className="h-6 w-6 text-accent" />
+          <Wand2 className="h-7 w-7 text-accent" />
           AI Phone Number Analyzer
         </CardTitle>
         <CardDescription>
@@ -115,7 +115,7 @@ export function PhoneCheckerClient() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
+            <Button type="submit" disabled={isPending} className="w-full sm:w-auto" size="lg">
               {isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -158,6 +158,13 @@ export function PhoneCheckerClient() {
                 <h4 className="font-semibold">AI Analysis:</h4>
                 <p>{result.explanation}</p>
               </div>
+
+              {result.location && (
+                <div>
+                  <h4 className="font-semibold flex items-center gap-2 mb-2"><MapPin className="h-5 w-5" /> Simulated Location:</h4>
+                  <p className="text-sm font-medium">{result.location}</p>
+                </div>
+              )}
 
               {result.reportedActivity && result.reportedActivity.length > 0 && (
                 <div>

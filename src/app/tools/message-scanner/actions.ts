@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 import { analyzeMessage, AnalyzeMessageInput } from "@/ai/flows/analyze-message";
 import { z } from "zod";
@@ -8,7 +8,7 @@ const formSchema = z.object({
 });
 
 export type ScamAnalysisResult =
-  | { success: true; data: { riskLevel: 'SAFE' | 'SUSPICIOUS' | 'DANGEROUS'; explanation: string; } }
+  | { success: true; data: { riskLevel: 'SAFE' | 'SUSPICIOUS' | 'DANGEROUS'; explanation: string; location?: string; } }
   | { success: false; error: string };
 
 export async function getScamAnalysis(

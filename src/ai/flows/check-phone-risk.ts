@@ -9,6 +9,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { locatePhoneNumberTool } from '../tools/locate-phone-number';
 
 const CheckPhoneRiskInputSchema = z.object({
   phoneNumber: z
@@ -23,6 +24,7 @@ const CheckPhoneRiskOutputSchema = z.object({
     .string()
     .describe('A simplified explanation for the risk level, with actionable advice for the user.'),
   reportedActivity: z.array(z.string()).describe("A list of simulated reported activities associated with the number (e.g., 'Spam Calls', 'Phishing Attempts')."),
+  location: z.string().optional().describe('The simulated geographical location of the phone number (e.g., "Delhi NCR").'),
 });
 export type CheckPhoneRiskOutput = z.infer<typeof CheckPhoneRiskOutputSchema>;
 
@@ -34,10 +36,13 @@ const prompt = ai.definePrompt({
   name: 'checkPhoneRiskPrompt',
   input: {schema: CheckPhoneRiskInputSchema},
   output: {schema: CheckPhoneRiskOutputSchema},
+  tools: [locatePhoneNumberTool],
   prompt: `You are a phone number risk analysis expert in India. You are analyzing a phone number for a non-technical user.
 
   IMPORTANT: You do not have access to a real-time database. You must SIMULATE a response based on common patterns.
   
+  First, use the locatePhoneNumber tool to get the simulated location of the number.
+
   Analyze the following phone number: {{{phoneNumber}}}
 
   Simulate a risk analysis based on these fictional rules:
@@ -50,6 +55,7 @@ const prompt = ai.definePrompt({
   1.  **riskLevel**: 'LOW', 'MEDIUM', or 'HIGH'.
   2.  **explanation**: A simple, clear reason for the risk level. Provide actionable advice like "Block this number," "Do not share OTPs," or "Answer with caution."
   3.  **reportedActivity**: A list of 1-2 simulated activities. For LOW risk, this can be an empty array or ["No suspicious activity reported"]. For MEDIUM/HIGH, it could be ["Spam Calls", "Phishing Attempts"].
+  4.  **location**: The location returned by the tool.
 
   Generate a plausible but clearly simulated response for the user.`,
 });

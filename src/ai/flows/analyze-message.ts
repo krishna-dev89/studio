@@ -22,6 +22,7 @@ const AnalyzeMessageOutputSchema = z.object({
   explanation: z
     .string()
     .describe('A simplified, step-by-step explanation of why the message was flagged with that risk level. Use simple language and provide actionable advice.'),
+  location: z.string().optional().describe('An inferred location (city, state) if mentioned in the message. Otherwise, this should be omitted.')
 });
 export type AnalyzeMessageOutput = z.infer<typeof AnalyzeMessageOutputSchema>;
 
@@ -41,6 +42,7 @@ const prompt = ai.definePrompt({
   - **Suspicious Requests:** Asking for OTPs, PINs, personal details, or to click unknown links or install apps.
   - **Unrealistic Offers:** Lottery wins, unbelievable discounts, free gifts.
   - **Grammar/Spelling:** Poor language and spelling mistakes.
+  - **Location Clues:** Look for mentions of Indian cities, states, or specific landmarks.
 
   Based on your analysis, determine the risk level:
   - **SAFE:** The message appears to be a standard, legitimate communication with no red flags.
@@ -48,6 +50,8 @@ const prompt = ai.definePrompt({
   - **DANGEROUS:** The message contains clear and immediate red flags indicating a likely scam or phishing attempt.
 
   Provide a simple, clear explanation for your conclusion. Start with the most critical finding. Give actionable advice like "Do not click any links" or "Block this sender."
+  
+  If you can infer a geographical location from the message content, set the 'location' field. Otherwise, leave it empty.
 
   Message to analyze:
   '''

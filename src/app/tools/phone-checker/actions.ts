@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 import { checkPhoneRisk, CheckPhoneRiskInput } from "@/ai/flows/check-phone-risk";
 import { z } from "zod";
@@ -8,7 +8,7 @@ const formSchema = z.object({
 });
 
 export type PhoneRiskResult =
-  | { success: true; data: { riskLevel: 'LOW' | 'MEDIUM' | 'HIGH'; explanation: string; reportedActivity: string[] } }
+  | { success: true; data: { riskLevel: 'LOW' | 'MEDIUM' | 'HIGH'; explanation: string; reportedActivity: string[]; location?: string; } }
   | { success: false; error: string };
 
 export async function getPhoneRisk(
